@@ -11,12 +11,14 @@ for(var i=0; i<indexOfDrumButtons; i++){
         was receiving an Uncaught ReferenceError: innerHTML is not defined at
         HTMLButtonElement*/
         let buttonInnerHTML = this.innerHTML;
-
+        
+        //for each button, relate this.innerHTML to the methods makeSound and buttonAnimation
         makeSound(buttonInnerHTML);
         buttonAnimation(buttonInnerHTML);
        
     });
 
+    //create an event lister for when either a button is clicked or pressed, animate the button and make a sound
     document.addEventListener('keypress', function(event) {
         makeSound(event.key);
         buttonAnimation(event.key);
@@ -24,35 +26,38 @@ for(var i=0; i<indexOfDrumButtons; i++){
     });
        
     function makeSound(key){
+        //create a switch statement instead of an if else statement, because it saves lines of code
     
         switch(key) {
             case 'w':
-                let tom1 = new Audio('sounds/tom-1.mp3')
+                /*just for clarifcation reasons/organizational reasons, specifying which button is linked to 
+                which switch statement instead of saying let audio = new Audio('sounds/tom-1.mp3)*/                
+                let tom1 = new Audio('sounds/tom-1.mp3');
                 tom1.play();
                 //break statement to tell the code to break and continue with rest of HTML
                 break;
             case 'a':
-                let tom2= new Audio('sounds/tom-2.mp3')
+                let tom2= new Audio('sounds/tom-2.mp3');
                 tom2.play();
                 break;
             case 's':
-                let tom3 = new Audio('sounds/tom-3.mp3')
+                let tom3 = new Audio('sounds/tom-3.mp3');
                 tom3.play();
                 break;
             case 'd':
-                let tom4 = new Audio('sounds/tom-4.mp3')
+                let tom4 = new Audio('sounds/tom-4.mp3');
                 tom4.play();
                 break;
             case 'j':
-                let snare = new Audio('sounds/snare.mp3')
+                let snare = new Audio('sounds/snare.mp3');
                 snare.play();
                 break;
             case 'k':
-                let crash = new Audio('sounds/crash.mp3')
+                let crash = new Audio('sounds/crash.mp3');
                 crash.play();
                 break;
             case 'l':
-                let kickBass = new Audio('sounds/kick-bass.mp3')
+                let kickBass = new Audio('sounds/kick-bass.mp3');
                 kickBass.play();
                 break;
             default: 
